@@ -296,7 +296,7 @@ if detection_mode == "📸 单张图片检测":
                     result = process_image(model, img_array, confidence, iou_threshold, max_det)
                     
                     # 显示处理后的图片
-                    st.image(result['image'], caption=f"检测结果 - {model_name}", use_container_width=True)
+                    st.image(result['image'], caption=f"检测结果 - {model_name}")
                     
                     # 显示统计信息
                     st.write(f"处理时间: {result['process_time']:.3f} 秒")
@@ -459,14 +459,14 @@ elif detection_mode == "📁 批量图片检测":
                         model_result = current_result['results'][model_idx]
                         with cols[col_idx]:
                             st.markdown(f"**{model_result['model']}**")
-                            st.image(model_result['img'], use_container_width=True)
+                            st.image(model_result['img'])
         else:
             # 如果模型数量小于等于2，使用单行布局
             cols = st.columns(num_models)
             for idx, model_result in enumerate(current_result['results']):
                 with cols[idx]:
                     st.markdown(f"**{model_result['model']}**")
-                    st.image(model_result['img'], use_container_width=True)
+                    st.image(model_result['img'])
 
         # 显示模型对比
         if len(model_performance) > 0:
@@ -696,8 +696,7 @@ elif detection_mode == "🎥 实时视频检测":
                                 model_displays[model_name].image(
                                     annotated_frame,
                                     channels="BGR",
-                                    caption=f"{model_name} - 实时检测",
-                                    use_container_width=True
+                                    caption=f"{model_name} - 实时检测"
                                 )
 
                                 # 更新实时统计
@@ -829,7 +828,7 @@ elif detection_mode == "📹 视频文件检测":
                         annotated_frame = result[0].plot()
 
                         # 更新显示
-                        model_displays[model_name].image(annotated_frame, channels="BGR", caption=model_name, use_container_width=True)
+                        model_displays[model_name].image(annotated_frame, channels="BGR", caption=model_name)
 
                         # 更新统计信息
                         current_fps = 1.0 / proc_time if proc_time > 0 else 0
