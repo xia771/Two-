@@ -1,0 +1,10 @@
+streamlit==1.29.0
+torch==2.2.0
+torchvision==0.17.0
+opencv-python-headless==4.8.1.78
+numpy>=1.18.5
+Pillow>=7.1.2
+ultralytics==8.0.227
+plotly==5.18.0
+pandas>=1.1.4
+python-multipart
